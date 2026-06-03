@@ -1,0 +1,11 @@
+Backend
+=====================================
+cd backend
+venv\Scripts\python -m uvicorn main:app --port 8001 --host 0.0.0.0 --reload	
+=====================================
+
+Frontend
+=====================================
+
+cd frontend
+npm run dev

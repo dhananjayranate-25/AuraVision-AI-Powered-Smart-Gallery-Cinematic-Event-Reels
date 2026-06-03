@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.env
+backend/venv/
+backend/__pycache__/
+backend/local_db.json
+backend/temp_audio.mp3
+backend/temp_video.mp4
+backend/temp_downloads/
+backend/uploads/
+.DS_Store
