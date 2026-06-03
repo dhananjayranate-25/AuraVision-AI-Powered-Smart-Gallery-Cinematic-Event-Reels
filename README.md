@@ -94,12 +94,47 @@ npm run dev
 
 ---
 
-## 📁 Project Structure
+## 📂 Project Structure
 
-* `/frontend` - Contains all React components, pages (GuestPortal, AdminDashboard, CinematicStudio), and Tailwind configuration.
-* `/backend` - Contains FastAPI routers, AI models, database schemas, and the uploaded media files.
-  * `/backend/routers/reels.py` - AI video generation logic.
-  * `/backend/routers/media.py` - Face recognition and file handling logic.
+A highly modular, scalable monorepo structure separating the React client and FastAPI server.
+
+```text
+AuraVision-AI-Powered-Smart-Gallery/
+├── frontend/                     # React Frontend (Vite)
+│   ├── src/
+│   │   ├── assets/               # Static assets & images
+│   │   ├── components/           # Reusable UI components (BulkUpload, etc.)
+│   │   ├── pages/                # Application routes
+│   │   │   ├── LandingPage.jsx   # Hero section & login
+│   │   │   ├── AdminDashboard.jsx# Event management & uploads
+│   │   │   ├── GuestPortal.jsx   # Smart Selfie Search page
+│   │   │   ├── GuestGallery.jsx  # Event gallery view
+│   │   │   └── CinematicStudio.jsx # Video Reel Generator UI
+│   │   ├── App.jsx               # Main React router
+│   │   └── main.jsx              # Application entry point & Axios config
+│   ├── tailwind.config.js        # UI styling definitions
+│   └── vite.config.js            # Build & proxy configuration
+│
+├── backend/                      # FastAPI Backend (Python)
+│   ├── routers/                  # API Endpoints
+│   │   ├── auth.py               # JWT authentication
+│   │   ├── events.py             # Event CRUD operations
+│   │   ├── guest.py              # Guest access & semantic search
+│   │   ├── media.py              # Photo uploads & processing
+│   │   └── reels.py              # Cinematic video generation API
+│   ├── services/                 # Core Business Logic & AI
+│   │   ├── ai_pipeline.py        # Facial recognition (OpenCV/Yunet)
+│   │   ├── reel_generator.py     # MoviePy beat-synced compilation
+│   │   ├── semantic.py           # Text-to-image semantic search
+│   │   └── vector_db.py          # FAISS indexing for fast retrieval
+│   ├── database.py               # MongoDB Async Motor connection
+│   ├── main.py                   # FastAPI application initialization
+│   ├── requirements.txt          # Python dependencies
+│   └── uploads/                  # Local storage for media (dev only)
+│
+├── render.yaml                   # Automated Render CI/CD deployment blueprint
+└── .gitignore                    # Git exclusions
+```
 
 ---
 *Built for the future of events.*
